@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+#Coder: akrecH
+#github: akr3ch
+
+r='\e[31m'
+g='\e[32m'
+y='\e[33m'
+B='\e[1m'
+s='\e[0m'
+
+if [ -z $1 ]
+then
+	echo -e "${B}${y}[!]${r}Usage -> '$0 10.10.10.10'"
+else
+	for PORT in {0..1000}; do timeout 1 bash -c "</dev/tcp/${1}/$PORT &>/dev/null" 2>/dev/null && echo -e "${B}${b}[+]${g}Found open port ${r}$PORT${g}"; done
+fi
